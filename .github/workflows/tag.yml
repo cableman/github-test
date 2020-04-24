@@ -20,3 +20,6 @@ jobs:
 
       - name: Echo version
         run: echo ${{ env.APP_VERSION }}
+
+      - name: Echo version2
+        run: echo ${{ steps.get_version.outputs.VERSION }}
