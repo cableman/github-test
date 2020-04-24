@@ -17,14 +17,14 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-      - name: Get the major version
+      - name: Set release version in env
         env:
           RELEASE_VERSION: ${{ steps.get_version.outputs.VERSION }}
+      
+      - name: Get the major version
         id: get_major_version
         run: echo ::set-output name=VERSION::${RELEASE_VERSION:0:1}
 
-      - name: Echo version
-        run: echo ${{ steps.get_version.outputs.VERSION }}
-
-      - name: Echo version
-        run: echo ${{ steps.get_major_version.outputs.MAJOR }}
+      - name: Set major release version in env
+        env:
+          RELEASE_VERSION: ${{ steps.get_major_version.outputs.VERSION }}
