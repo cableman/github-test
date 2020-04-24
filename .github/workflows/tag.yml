@@ -1,6 +1,9 @@
 on:
   push:
-    tags: *
+    branches-ignore:
+      - '*'
+    tags: 
+      - '*'
 
 env:
   ORG_NAME: danskernesdigitalebibliotek
