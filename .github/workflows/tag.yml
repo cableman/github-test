@@ -7,7 +7,6 @@ on:
 
 env:
   ORG_NAME: danskernesdigitalebibliotek
-  APP_VERSION: ${{ github.event.ref }}
   NAMESPACE: cover-service
 
 jobs:
@@ -19,19 +18,11 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Get the major version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
-      - name: Get the major version
-        id: get_version
-        run: echo ::set-output name=MAJOR::${steps.get_version.outputs.VERSION:0:1}
-
+        id: get_major_version
+        run: echo ::set-output name=VERSION::${steps.get_version.outputs.VERSION:0:1}
 
       - name: Echo version
-        run: echo ${{ env.APP_VERSION }}
-
-      - name: Echo version2
         run: echo ${{ steps.get_version.outputs.VERSION }}
 
-      - name: Echo version2
-        run: echo ${{ steps.get_version.outputs.MAJOR }}
+      - name: Echo version
+        run: echo ${{ steps.get_major_version.outputs.MAJOR }}
