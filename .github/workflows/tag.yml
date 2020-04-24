@@ -20,6 +20,7 @@ jobs:
       - name: Set release version in env
         env:
           RELEASE_VERSION: ${{ steps.get_version.outputs.VERSION }}
+        run: echo $RELEASE_VERSION
       
       - name: Get the major version
         id: get_major_version
@@ -27,4 +28,5 @@ jobs:
 
       - name: Set major release version in env
         env:
-          RELEASE_VERSION: ${{ steps.get_major_version.outputs.VERSION }}
+          MAJOR_RELEASE_VERSION: ${{ steps.get_major_version.outputs.VERSION }}
+        run: echo $MAJOR_RELEASE_VERSION
