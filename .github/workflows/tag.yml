@@ -1,29 +1,12 @@
 on:
   push:
-    branches-ignore:
+    branches:
       - '*'
-    tags: 
-      - '*'
-
-env:
-  ORG_NAME: danskernesdigitalebibliotek
-  NAMESPACE: cover-service
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Get the version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-    
-      - name: Get the major version
-        env:
-          RELEASE_VERSION: ${{ steps.get_version.outputs.VERSION }}
-        id: get_major_version
-        run: echo ::set-output name=VERSION::${RELEASE_VERSION:0:1}
+      - name: Access secrets
+        run: echo ${{ secrets.SUPERTEST }}
 
-      - name: Set major release version in env
-        env:
-          MAJOR_RELEASE_VERSION: ${{ steps.get_major_version.outputs.VERSION }}
-        run: echo $MAJOR_RELEASE_VERSION
