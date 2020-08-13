@@ -1,0 +1,10 @@
+on: pull_request
+name: Review
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Access secrets
+        run: echo ${{ secrets.SUPERTEST }}
+
