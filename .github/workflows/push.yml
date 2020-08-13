@@ -9,3 +9,6 @@ jobs:
     steps:
       - name: Access secrets
         run: echo ${{ secrets.SUPERTEST }}
+        
+      - name: Test
+        run: echo "test"
