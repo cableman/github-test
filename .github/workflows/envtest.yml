@@ -9,6 +9,10 @@ jobs:
     strategy:
       matrix:
         site: [SITE1, SITE2]
+    env:
+
     steps:
       - name: Test (${{ matrix.site }})
-        run: echo ${{ secrets[APP_TEST_${{ martix.site }}] }}
+        run: echo ${{ secrets[env.SITE_PATH] }}
+        env:
+          SITE_PATH: APP_TEST_${{ martix.site }}
