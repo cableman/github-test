@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  cleanUp:
+    runs-on: ubuntu-lastest
+    strategy:
+      matrix:
+        site: [SITE1, SITE2]
+    steps:
+      - name: Test (${{ matrix.site }})
+        run: echo ${{ secrets[APP_TEST_${{ martix.site }}] }}
