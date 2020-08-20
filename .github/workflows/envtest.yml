@@ -9,10 +9,9 @@ jobs:
     strategy:
       matrix:
         site: [SITE1, SITE2]
-        subpath: [ sites/all/modules/ereol, sites/all/modules/breol]
     steps:
       - name: Set env
         run: echo ::set-env name=SITE_PATH::APP_TEST_${{ matrix.site }}
  
       - name: Test
-        run: echo ${{ matrix.subpath }}
+        run: echo ${{ secrets[env.SITE_PATH] }}
