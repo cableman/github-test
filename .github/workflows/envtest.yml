@@ -14,4 +14,4 @@ jobs:
  #       run: echo ::set-env name=SITE_PATH::APP_TEST_${{ matrix.site }}
         run: echo ${{ matrix.site }}
       - name: Test
-        run: echo ${{ secrets[$SITE_PATH] }}
+        run: echo ${{ secrets[env.SITE_PATH] }}
