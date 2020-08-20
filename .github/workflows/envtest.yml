@@ -5,7 +5,7 @@ on:
 
 jobs:
   cleanUp:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         site: [SITE1, SITE2]
