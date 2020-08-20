@@ -11,7 +11,7 @@ jobs:
         site: [SITE1, SITE2]
     steps:
       - name: Set env
- #       run: echo ::set-env name=SITE_PATH::APP_TEST_${{ martix.site }}
-        run: echo ${{ martix.site }}
+ #       run: echo ::set-env name=SITE_PATH::APP_TEST_${{ matrix.site }}
+        run: echo ${{ matrix.site }}
       - name: Test
         run: echo ${{ secrets[$SITE_PATH] }}
