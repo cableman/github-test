@@ -10,7 +10,7 @@ jobs:
       matrix:
         site: [SITE1, SITE2]
     steps:
-#     - name: Set env
+      - name: Set env
  #       run: echo ::set-env name=SITE_PATH::APP_TEST_${{ martix.site }}
         run: echo ${{ martix.site }}
       - name: Test
