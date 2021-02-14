@@ -1,7 +1,5 @@
-on:
-  push:
-    branches:
-      - '*'
+on: pull_request
+name: Review
 
 jobs:
   build:
@@ -9,6 +7,4 @@ jobs:
     steps:
       - name: Access secrets
         run: echo ${{ secrets.SUPERTEST }}
-        
-      - name: Test
-        run: echo "test"
+
